@@ -1,16 +1,21 @@
-<h1>New Conversation</h1>
-<%= form_tag conversations_path, method: :post do %>
-<div class="">
-  <%= select_tag :user_id, options_from_collection_for_select(@recipients, :id, :email) %>
-</div>
-<div class="">
-  <%= text_field_tag :subject,nil,  placeholder: "Subject" %>
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <h1>New Conversation</h1>
+      <%= form_tag conversations_path, method: :post do %>
+      <div class="dropdown">
+        <%= select_tag :user_id, options_from_collection_for_select(@recipients, :id, :email), class: "btn btn-default dropdown-toggle" %>
+      </div>
+      <div class="">
+        <%= text_field_tag :subject,nil,  placeholder: "Subject", class: "form-control",:style => "margin-top:20px;" %>
 
-</div>
-<div class="">
-<%= text_area_tag :body, nil, placeholder: "Body" %>
-</div>
+      </div>
+      <div class="">
+      <%= text_area_tag :body, nil, placeholder: "Body", class: "form-control",:style => "margin-top:20px;" %>
+      </div>
 
-
-<%= submit_tag, "Send Message" %>
-<% end %>
+      <%= submit_tag "Send Message", class: "btn btn-primary",:style => "margin-top:20px;" %>
+      <% end %>
+    </div>
+  </div>
+</div>
